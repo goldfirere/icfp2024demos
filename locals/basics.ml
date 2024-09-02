@@ -1,7 +1,14 @@
-(* Locals cannot escape their region.
-   Functions bodies (along with loops) are regions.*)
+(* Jane Street has added *locals* to OCaml. Because local values are
+   not allowed to escape their allocating region (e.g. function body),
+   we can deallocate them without garbage collection.
 
-(* So f1 here doesn't work (try it!): *)
+   This speeds up our programs.
+
+   This file shows some of the aspect of how the types work; the file
+   stack.ml is a demonstration of how stack allocation can actually
+   save runtime garbage-collected allocations. *)
+
+(* [f1] here doesn't work (try it!) because it has an escaping local: *)
 
 (*
 let f1 () =
