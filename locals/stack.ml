@@ -63,7 +63,7 @@ let () =
             Random.int 100))
   in
   Array.iteri (fun r inner ->
-      Array.iteri (fun c elt -> arr.(r).(c) <- elt * r) inner) arr;
+      Array.iteri (fun c elt -> arr.(r).(c) <- elt * r) inner [@nontail]) arr;
   Array.iteri (fun r inner ->
       Printf.printf "%d: " r;
       Array.iter (fun elt -> Printf.printf "%d " elt) inner;
