@@ -8,6 +8,10 @@
    stack.ml is a demonstration of how stack allocation can actually
    save runtime garbage-collected allocations. *)
 
+(* Compile this file with
+     > ocamlc -i basics.ml
+*)
+
 (* [f1] here doesn't work (try it!) because it has an escaping local: *)
 
 (*

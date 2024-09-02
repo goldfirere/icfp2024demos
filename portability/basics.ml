@@ -6,6 +6,10 @@
    primitive construct is *contention*. No one can access
    (read or write) mutable fields in a contended value. *)
 
+(* Compile this file with
+     > ocamlc -extension-universe alpha -allow-illegal-crossing -i basics.ml
+   Ask us about what these extra flags mean! *)
+
 (* This works fine: *)
 let f1 () =
   let r @ uncontended = ref "hello" in
